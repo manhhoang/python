@@ -1,0 +1,3 @@
+def double_numbers(iterable):
+    for i in iterable:
+        yield i + i
