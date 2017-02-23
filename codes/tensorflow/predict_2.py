@@ -67,9 +67,9 @@ def predictint(imvalue):
     with tf.Session() as sess:
         sess.run(init_op)
         saver.restore(sess, "model_2/model2.ckpt")
-        #print ("Model restored.")
+        #print("Model restored.")
 
-        prediction=tf.argmax(y_conv,1)
+        prediction = tf.argmax(y_conv, 1)
         return prediction.eval(feed_dict={x: [imvalue],keep_prob: 1.0}, session=sess)
 
 
@@ -86,8 +86,8 @@ def imageprepare(argv):
     if width > height: #check which dimension is bigger
         #Width is bigger. Width becomes 20 pixels.
         nheight = int(round((20.0/width*height),0)) #resize height according to ratio width
-        if (nheigth == 0): #rare case but minimum is 1 pixel
-            nheigth = 1
+        if (nheight == 0): #rare case but minimum is 1 pixel
+            nheight = 1
             # resize and sharpen
         img = im.resize((20,nheight), Image.ANTIALIAS).filter(ImageFilter.SHARPEN)
         wtop = int(round(((28 - nheight)/2),0)) #caculate horizontal pozition
@@ -109,7 +109,7 @@ def imageprepare(argv):
     #normalize pixels to 0 and 1. 0 is pure white, 1 is pure black.
     tva = [ (255-x)*1.0/255.0 for x in tv]
     return tva
-    #print(tva)
+
 
 def main(argv):
     """
@@ -117,7 +117,7 @@ def main(argv):
     """
     imvalue = imageprepare(argv)
     predint = predictint(imvalue)
-    print (predint[0]) #first value in list
+    print(predint[0]) #first value in list
 
 if __name__ == "__main__":
-    main("test-images/1/im113.png")
+    main("test-images/1/im10000.png")

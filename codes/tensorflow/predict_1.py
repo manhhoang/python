@@ -1,11 +1,12 @@
 import sys
 import tensorflow as tf
-from PIL import Image,ImageFilter
+from PIL import Image, ImageFilter
+
 
 def predictint(imvalue):
     """
     This function returns the predicted integer.
-    The imput is the pixel values from the imageprepare() function.
+    The input is the pixel values from the imageprepare() function.
     """
 
     # Define the model (same as when creating the model file)
@@ -29,14 +30,14 @@ def predictint(imvalue):
         saver.restore(sess, "model_1/model.ckpt")
         #print ("Model restored.")
 
-        prediction=tf.argmax(y,1)
+        prediction = tf.argmax(y, 1)
         return prediction.eval(feed_dict={x: [imvalue]}, session=sess)
 
 
 def imageprepare(argv):
     """
     This function returns the pixel values.
-    The imput is a png file location.
+    The input is a png file location.
     """
     im = Image.open(argv).convert('L')
     width = float(im.size[0])
@@ -45,21 +46,21 @@ def imageprepare(argv):
 
     if width > height: #check which dimension is bigger
         #Width is bigger. Width becomes 20 pixels.
-        nheight = int(round((20.0/width*height),0)) #resize height according to ratio width
+        nheight = int(round((20.0/width*height), 0)) #resize height according to ratio width
         if (nheight == 0): #rare case but minimum is 1 pixel
             nheight = 1
             # resize and sharpen
         img = im.resize((20,nheight), Image.ANTIALIAS).filter(ImageFilter.SHARPEN)
-        wtop = int(round(((28 - nheight)/2),0)) #caculate horizontal pozition
+        wtop = int(round(((28 - nheight)/2), 0)) #caculate horizontal pozition
         newImage.paste(img, (4, wtop)) #paste resized image on white canvas
     else:
         #Height is bigger. Heigth becomes 20 pixels.
-        nwidth = int(round((20.0/height*width),0)) #resize width according to ratio height
+        nwidth = int(round((20.0/height*width), 0)) #resize width according to ratio height
         if (nwidth == 0): #rare case but minimum is 1 pixel
             nwidth = 1
             # resize and sharpen
-        img = im.resize((nwidth,20), Image.ANTIALIAS).filter(ImageFilter.SHARPEN)
-        wleft = int(round(((28 - nwidth)/2),0)) #caculate vertical pozition
+        img = im.resize((nwidth, 20), Image.ANTIALIAS).filter(ImageFilter.SHARPEN)
+        wleft = int(round(((28 - nwidth)/2), 0)) #caculate vertical pozition
         newImage.paste(img, (wleft, 4)) #paste resized image on white canvas
 
     #newImage.save("sample.png")
@@ -67,8 +68,10 @@ def imageprepare(argv):
     tv = list(newImage.getdata()) #get pixel values
 
     #normalize pixels to 0 and 1. 0 is pure white, 1 is pure black.
-    tva = [ (255-x)*1.0/255.0 for x in tv]
+    tva = [(255-x)*1.0/255.0 for x in tv]
+    print(tva)
     return tva
+
 
 def main(argv):
     """
@@ -76,7 +79,7 @@ def main(argv):
     """
     imvalue = imageprepare(argv)
     predint = predictint(imvalue)
-    print (predint[0]) #first value in list
+    print(predint[0]) #first value in list
 
 if __name__ == "__main__":
-    main("test-images/0/im1.png")
+    main("test-images/1/im10000.png")

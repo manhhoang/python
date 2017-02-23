@@ -33,7 +33,7 @@ with tf.Session() as sess:
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
     save_path = saver.save(sess, "model_1/model.ckpt")
-    print ("Model saved in file: ", save_path)
+    print("Model saved in file: ", save_path)
 
     correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
@@ -43,6 +43,7 @@ with tf.Session() as sess:
     from random import randint
     num = randint(0, mnist.test.images.shape[0])
     img = mnist.test.images[num]
+    print(img)
 
     classification = sess.run(tf.argmax(y, 1), feed_dict={x: [img]})
     plt.imshow(img.reshape(28, 28), cmap=plt.cm.binary)
