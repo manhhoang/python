@@ -95,3 +95,12 @@ filter(lambda x: x > 5, [3, 4, 5, 6, 7])  # => [6, 7]
 # List comprehension stores the output as a list which can itself be a nested list
 [add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
 [x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
+
+# Private method
+class foo():
+    def bar(self): pass
+    def __bar(self): pass
+
+f = foo()
+f.bar()   # this call succeeds
+f.__bar() # this call fails
