@@ -35,6 +35,7 @@ class Solution:
         """
         return sorted(collections.Counter(nums).items(), key=lambda a: a[1], reverse=True)[0][0]
 
+
 if __name__ == "__main__":
     print(Solution.majorityElement1([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))
     print(Solution.majorityElement2([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))

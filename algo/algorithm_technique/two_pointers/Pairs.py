@@ -27,6 +27,7 @@ def solution(a, b, x):
         i += 1
     return ans
 
+print(solution([1, 2, 5], [2, 4, 7], 3))
 
 def test1():
     assert solution([1, 2, 5], [2, 4, 7], 3) == [0, 0]
