@@ -1,7 +1,8 @@
 # Use "def" to create new functions
-def add(x, y):
+def add(x: int, y: int):
     print("x is {} and y is {}".format(x, y))
     return x + y  # Return values with a return statement
+
 
 # Calling functions with parameters
 add(5, 6)  # => prints out "x is 5 and y is 6" and returns 11
@@ -9,24 +10,28 @@ add(5, 6)  # => prints out "x is 5 and y is 6" and returns 11
 # Another way to call functions is with keyword arguments
 add(y=6, x=5)  # Keyword arguments can arrive in any order.
 
+
 # You can define functions that take a variable number of
 # positional arguments
-def varargs(*args):
+def varargs(*args: tuple):
     return args
+
 
 varargs(1, 2, 3)  # => (1, 2, 3)
 
+
 # You can define functions that take a variable number of
 # keyword arguments, as well
-def keyword_args(**kwargs):
+def keyword_args(**kwargs: dict):
     return kwargs
+
 
 # Let's call it to see what happens
 keyword_args(big="foot", loch="ness")  # => {"big": "foot", "loch": "ness"}
 
 
 # You can do both at once, if you like
-def all_the_args(*args, **kwargs):
+def all_the_args(*args: tuple, **kwargs: dict):
     print(args)
     print(kwargs)
 """
@@ -44,7 +49,7 @@ all_the_args(**kwargs)         # equivalent to foo(a=3, b=4)
 all_the_args(*args, **kwargs)  # equivalent to foo(1, 2, 3, 4, a=3, b=4)
 
 # Returning multiple values (with tuple assignments)
-def swap(x, y):
+def swap(x: int, y: int):
     return y, x  # Return multiple values as a tuple without the parenthesis.
                  # (Note: parenthesis have been excluded but can be included)
 
@@ -56,26 +61,30 @@ x, y = swap(x, y)     # => x = 2, y = 1
 # Function Scope
 x = 5
 
-def set_x(num):
+
+def set_x(num: int):
     # Local var x not the same as global variable x
     x = num    # => 43
     print (x)  # => 43
 
-def set_global_x(num):
+
+def set_global_x(num: int):
     global x
     print (x)  # => 5
     x = num    # global var x is now set to 6
     print (x)  # => 6
+
 
 set_x(43)
 set_global_x(6)
 
 
 # Python has first class functions
-def create_adder(x):
-    def adder(y):
+def create_adder(x: int):
+    def adder(y: int):
         return x + y
     return adder
+
 
 add_10 = create_adder(10)
 add_10(3)   # => 13
@@ -96,10 +105,12 @@ filter(lambda x: x > 5, [3, 4, 5, 6, 7])  # => [6, 7]
 [add_10(i) for i in [1, 2, 3]]         # => [11, 12, 13]
 [x for x in [3, 4, 5, 6, 7] if x > 5]  # => [6, 7]
 
+
 # Private method
 class foo():
     def bar(self): pass
     def __bar(self): pass
+
 
 f = foo()
 f.bar()   # this call succeeds

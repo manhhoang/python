@@ -1,4 +1,4 @@
-def palindrome(s):
+def palindrome(s: str):
     i = 0
     j = len(s) - 1
     while i <= j:
@@ -8,6 +8,7 @@ def palindrome(s):
         else:
             return False
     return True
+
 
 print(palindrome("abba"))
 print(palindrome("abbaa"))

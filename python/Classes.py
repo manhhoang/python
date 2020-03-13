@@ -71,7 +71,7 @@ Human.grunt()    # => "*grunt*"
 i.age = 42
 
 # Get the property
-i.age # => 42
+i.age  # => 42
 
 # Delete the property
 del i.age
