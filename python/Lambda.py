@@ -1,2 +1,2 @@
-sum = lambda x, y : x + y
-print(sum(3,4))
+sum = lambda x, y: x + y
+print(sum(3, 4))

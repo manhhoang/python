@@ -10,7 +10,8 @@ import collections
 
 class Solution:
 
-    def majorityElement1(nums):
+    @staticmethod
+    def majority_element1(nums: list):
         """
         :type nums: List[int]
         :rtype: int
@@ -28,7 +29,8 @@ class Solution:
 
         return nums[idx]
 
-    def majorityElement2(nums):
+    @staticmethod
+    def majority_element2(nums: list):
         """
         :type nums: List[int]
         :rtype: int
@@ -37,5 +39,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution.majorityElement1([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))
-    print(Solution.majorityElement2([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))
+    print(Solution.majority_element1([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))
+    print(Solution.majority_element2([1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 6]))

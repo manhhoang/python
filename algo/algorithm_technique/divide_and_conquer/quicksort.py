@@ -6,9 +6,9 @@ def quicksort(x):
         i = 0
         for j in range(len(x)-1):
             if x[j+1] < pivot:
-                x[j+1],x[i+1] = x[i+1], x[j+1]
+                x[j+1], x[i+1] = x[i+1], x[j+1]
                 i += 1
-        x[0],x[i] = x[i],x[0]
+        x[0], x[i] = x[i], x[0]
         first_part = quicksort(x[:i])
         second_part = quicksort(x[i+1:])
         first_part.append(x[i])
