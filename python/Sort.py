@@ -58,3 +58,25 @@ sort_orders = sorted(orders.items(), key=lambda x: x[1], reverse=True)
 for i in sort_orders:
     print(i[0], i[1])
 print('\n')
+
+
+keys = {
+  'KEY1': {
+    'name': 'google',
+    'date': 20100701,
+    'downloads': 0
+  },
+  'KEY2': {
+    'name': 'chrome',
+    'date': 20071010,
+    'downloads': 0
+  },
+  'KEY3': {
+    'name': 'python',
+    'date': 20100710,
+    'downloads': 100
+  }
+}
+sorted_key = sorted(keys, key=lambda x: (keys[x]['downloads'], keys[x]['date']))
+for a in sorted_key:
+    print(f"'{a}'" + ':' + str(keys[a]))
