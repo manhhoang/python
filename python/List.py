@@ -15,23 +15,29 @@ li.append(3)    # li is now [1, 2, 4, 3] again.
 
 # Access a list like you would any array
 li[0]   # => 1
+
 # Look at the last element
 li[-1]  # => 3
 
 # Looking out of bounds is an IndexError
-li[4]  # Raises an IndexError
+# li[4]  # Raises an IndexError
 
 # You can look at ranges with slice syntax.
 # (It's a closed/open range for you mathy types.)
 li[1:3]   # => [2, 4]
+
 # Omit the beginning
 li[2:]    # => [4, 3]
+
 # Omit the end
 li[:3]    # => [1, 2, 4]
+
 # Select every second entry
 li[::2]   # =>[1, 4]
+
 # Return a reversed copy of the list
 li[::-1]  # => [3, 4, 2, 1]
+
 # Use any combination of these to make advanced slices
 # li[start:end:step]
 

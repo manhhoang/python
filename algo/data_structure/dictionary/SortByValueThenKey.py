@@ -26,18 +26,23 @@ if not val4[0].isdigit():
     dic[key4] = val4
 
 print(dic)
+print('\n')
+
 
 sortedList = sorted(dic.items(), key=lambda x: (x[1], x[0]))
 print(sortedList)
+print('\n')
+
 
 result = []
 for key, value in sortedList:
     result.append(key + " " + value)
 print(result)
+print('\n')
 
 
-y={100:1, 90:4, 99:3, 92:1, 101:1}
-ans = sorted(y.items(), key=lambda x: (x[1],x[0]), reverse=True)
+y = {100: 1, 90: 4, 99: 3, 92: 1, 101: 1}
+ans = sorted(y.items(), key=lambda x: (x[1], x[0]), reverse=True)
 
 print(ans)
 

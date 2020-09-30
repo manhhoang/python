@@ -1,3 +1,4 @@
+# Basic sort
 a = [3, 6, 8, 2, 78, 1, 23, 45, 9]
 a.sort()
 print(a)
@@ -9,18 +10,21 @@ print(a)
 print('\n')
 
 
+# Sort dictionary by value
 x = {1: 'f', 3: 'c', 4: 'a', 2: 'b', 0: 'i'}
 y = {k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
 print(y)
 print('\n')
 
 
+# Sort dictionary by key
 x = {1: 'f', 3: 'c', 4: 'a', 2: 'b', 0: 'i'}
 y = {k: v for k, v in sorted(x.items(), key=lambda item: item[0])}
 print(y)
 print('\n')
 
 
+# Sort class
 class Student:
     def __init__(self, name, grade, age):
         self.name = name
@@ -37,6 +41,7 @@ print(sorted(student_objects, key=lambda student: student.age, reverse=True))
 print('\n')
 
 
+# Sort tuples
 student_tuples = [
     ('john', 'A', 15),
     ('jane', 'B', 12),
@@ -47,6 +52,7 @@ print(sorted(student_tuples, key=lambda student: (student[2], student[0])))
 print('\n')
 
 
+# Sort dictionary
 orders = {
     'cappuccino': 54,
     'latte': 56,
@@ -60,6 +66,7 @@ for i in sort_orders:
 print('\n')
 
 
+# Sort nested dictionary
 keys = {
   'KEY1': {
     'name': 'google',
