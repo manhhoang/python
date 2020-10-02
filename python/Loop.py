@@ -1,4 +1,4 @@
-n = int(input('Input N='))
+n = 5
 
 i = 0
 while i < n:
