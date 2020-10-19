@@ -1,7 +1,12 @@
+import copy
+
 # Dictionaries store mappings
 empty_dict = {}
 # Here is a prefilled dictionary
 filled_dict = {"one": 1, "two": 2, "three": 3}
+
+# Deep cope dictionary
+copy_dic = copy.deepcopy(filled_dict)
 
 # Note keys for dictionaries have to be immutable types. This is to ensure that
 # the key can be converted to a constant hash value for quick look-ups.
@@ -49,3 +54,6 @@ del filled_dict["one"]  # Removes the key "one" from filled dict
 # From Python 3.5 you can also use the additional unpacking options
 # {'a': 1, **{'b': 2}}  # => {'a': 1, 'b': 2}
 # {'a': 1, **{'a': 2}}  # => {'a': 2}
+
+old_dict = {'hello': 'world', 'foo': 'bar'}
+new_dict = {**old_dict, 'foo': 'baz'}

@@ -10,6 +10,9 @@ valid_set = {(1,), 1}
 # Can set new variables to a set
 filled_set = some_set
 
+# Deep copy a set
+copy_set = some_set.copy()
+
 # Add one more item to the set
 filled_set.add(5)  # filled_set is now {1, 2, 3, 4, 5}
 
